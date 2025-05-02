@@ -1,3 +1,5 @@
+export const USER_KEY = "selected-user";
+
 export const PAGES = {
   login: "/login",
   users: "/users",
@@ -39,6 +41,10 @@ export const IMAGES = {
   people: "/people.png",
   file: "/file.png",
   money: "/money.png",
+  arrowBack: "/backArrow.png",
+  starFilled: "/star-filled.png",
+  plainUser: "/plain-user.png",
+  star: "/star.png",
 };
 
 export const MENU_ITEMS = [

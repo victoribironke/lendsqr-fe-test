@@ -1,0 +1,291 @@
+@use "./mixins" as *;
+
+.container {
+  padding-top: 6rem;
+}
+
+.arrowBack {
+  display: flex;
+  align-items: center;
+  gap: 0.8125rem;
+  cursor: pointer;
+  margin-bottom: 2rem;
+
+  span {
+    font-weight: normal;
+    font-size: 1rem;
+    line-height: 100%;
+    color: #545f7d;
+  }
+}
+
+.headerTextAndButtonContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @include breakpoint("md") {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+  }
+
+  h1 {
+    color: #213f7d;
+    font-size: 1.5rem;
+    line-height: 100%;
+    font-weight: 500;
+    width: 100%;
+  }
+
+  div {
+    display: flex;
+    gap: 1.25rem;
+    width: 100%;
+    justify-content: end;
+
+    @include breakpoint("md") {
+      justify-content: flex-start;
+    }
+
+    button {
+      width: 100%;
+      max-width: 10.625rem;
+      height: 2.5rem;
+      border-radius: 0.5rem;
+      border: 0.0625rem solid #39cdcc;
+      color: #39cdcc;
+      font-weight: 600;
+      font-size: 0.875rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      line-height: 100%;
+      transition: all 0.2s ease-in-out;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .danger {
+      border: 0.0625rem solid #e4033b;
+      color: #e4033b;
+    }
+  }
+}
+
+.headerContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 3.1875rem;
+  background-color: #ffffff;
+  box-shadow: 0.1875rem 0.3125rem 1.25rem 0 #0000000a;
+  border: 0.0625rem solid #213f7d0f;
+  border-radius: 0.25rem;
+  padding: 1.875rem 1.875rem 0 1.875rem;
+  margin-top: 2.5rem;
+}
+
+.topSection {
+  display: flex;
+  align-items: center;
+
+  @media (max-width: 68.4375rem) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+  }
+
+  .imageAndNameContainer {
+    display: flex;
+    align-items: center;
+  }
+
+  .profileImage {
+    height: 6.25rem;
+    width: 6.25rem;
+    border-radius: 50%;
+    background-color: #213f7d16;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1.875rem;
+  }
+
+  .nameContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    h3 {
+      color: #213f7d;
+      font-size: 1.375rem;
+      font-weight: 500;
+      line-height: 100%;
+    }
+
+    p {
+      color: #545f7d;
+      font-size: 0.875rem;
+      font-weight: 400;
+      line-height: 100%;
+      text-transform: uppercase;
+    }
+  }
+
+  .divider {
+    height: 5rem;
+    width: 0.0625rem;
+    background-color: #545f7d20;
+    margin-inline: 1.875rem;
+    display: block;
+
+    @media (max-width: 68.4375rem) {
+      display: none;
+    }
+  }
+
+  .amountContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    h3 {
+      color: #213f7d;
+      font-size: 1.375rem;
+      font-weight: 500;
+      line-height: 100%;
+    }
+
+    p {
+      color: #213f7d;
+      font-size: 0.75rem;
+      font-weight: 400;
+      line-height: 100%;
+    }
+  }
+
+  .tierContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+
+    @media (max-width: 68.4375rem) {
+      flex-direction: row;
+    }
+
+    span {
+      color: #545f7d;
+      font-weight: 500;
+      font-size: 0.875rem;
+    }
+
+    div {
+      display: flex;
+      gap: 0.25rem;
+    }
+  }
+}
+
+.menuContainer {
+  display: flex;
+  justify-content: space-between;
+  overflow-x: auto;
+  scrollbar-width: none;
+
+  div {
+    padding-bottom: 0.625rem;
+    height: 1.875rem;
+    min-width: 10.625rem;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    color: #000000cc;
+    font-size: 1rem;
+    font-weight: normal;
+
+    &:first-child {
+      border-bottom: 0.125rem solid #39cdcc;
+      color: #39cdcc;
+    }
+
+    &:hover {
+      border-bottom: 0.125rem solid #39cdcc;
+      color: #39cdcc;
+    }
+
+    @include breakpoint("md") {
+      &:hover {
+        border-bottom: none;
+        color: initial;
+      }
+    }
+  }
+}
+
+.contentContainer {
+  background-color: #ffffff;
+  box-shadow: 0.1875rem 0.3125rem 1.25rem 0 #0000000a;
+  border: 0.0625rem solid #213f7d0f;
+  border-radius: 0.25rem;
+  padding: 1.875rem 1.875rem 2.5rem 1.875rem;
+  margin-top: 1.875rem;
+
+  .divider {
+    width: 100%;
+    height: 0.0625rem;
+    background-color: #213f7d10;
+    margin-block: 1.875rem;
+  }
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.875rem;
+
+  h3 {
+    color: #213f7d;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+}
+
+.singleInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+
+  span {
+    color: #545f7d;
+    font-weight: 400;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+  }
+
+  h4 {
+    color: #545f7d;
+    font-weight: 500;
+    font-size: 1rem;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.875rem;
+
+  @include breakpoint(xl) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include breakpoint(lg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include breakpoint(md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include breakpoint(sm) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

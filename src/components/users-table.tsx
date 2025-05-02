@@ -4,8 +4,9 @@ import { UsersTableProps } from "@/types/general";
 import { cn, formatDate } from "@/lib/utils";
 import { useUsers } from "@/context/user-context";
 import { useRouter } from "next/navigation";
-import { IMAGES, PAGES } from "@/constants/constants";
+import { IMAGES, PAGES, USER_KEY } from "@/constants/constants";
 import FilterPanel from "./filter-panel";
+import { USERS } from "@/constants/users";
 
 const UsersTable = ({
   data,
@@ -15,7 +16,7 @@ const UsersTable = ({
 }: UsersTableProps) => {
   const { push } = useRouter();
   const [showFilter, setShowFilter] = useState(false);
-  const { deactivateUser, activateUser, blacklistUser } = useUsers();
+  const { users, deactivateUser, activateUser, blacklistUser } = useUsers();
   const [actionMenuOpen, setActionMenuOpen] = useState("");
 
   const handleToggleFilter = () => setShowFilter(!showFilter);
@@ -26,6 +27,11 @@ const UsersTable = ({
   const closeActionMenu = () => setActionMenuOpen("");
 
   const handleViewDetails = (userId: string) => {
+    localStorage.setItem(
+      USER_KEY,
+      JSON.stringify(users.find((u) => u.id === userId))
+    );
+
     push(PAGES.user_details(userId));
     closeActionMenu();
   };

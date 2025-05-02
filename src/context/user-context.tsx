@@ -52,11 +52,16 @@ export const UsersProvider = ({ children }: { children: ReactNode }) => {
 
   const stats = useMemo(() => {
     const totalUsers = users.length;
-    const usersWithLoans = users.filter(
-      (user) => user.loanRepayment > 0
-    ).length;
-    const usersWithSavings = users.filter((user) => user.savings > 0).length;
-    const activeUsers = users.filter((user) => user.status === "active").length;
+
+    let usersWithLoans = 0;
+    let usersWithSavings = 0;
+    let activeUsers = 0;
+
+    for (let i = 0; i < users.length; i++) {
+      usersWithLoans += users[i].loanRepayment > 0 ? 1 : 0;
+      usersWithSavings += users[i].savings > 0 ? 1 : 0;
+      activeUsers += users[i].status === "active" ? 1 : 0;
+    }
 
     return { totalUsers, activeUsers, usersWithLoans, usersWithSavings };
   }, [users]);

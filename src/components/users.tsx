@@ -52,9 +52,7 @@ const Users = () => {
 
   return (
     <div className={styles.userContainer}>
-      <h1 role="heading" className={styles.title}>
-        Users
-      </h1>
+      <h1 className={styles.title}>Users</h1>
       <div className={styles.cardContainer}>
         <div className={styles.detailsCard}>
           <div>

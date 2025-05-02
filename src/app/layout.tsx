@@ -1,5 +1,8 @@
+"use client";
+
 import "../styles/globals.scss";
 import { Suspense } from "react";
+import { UsersProvider } from "@/context/user-context";
 
 const RootLayout = ({
   children,
@@ -9,7 +12,9 @@ const RootLayout = ({
   return (
     <html lang="en">
       <body>
-        <Suspense>{children}</Suspense>
+        <UsersProvider>
+          <Suspense>{children}</Suspense>
+        </UsersProvider>
       </body>
     </html>
   );

@@ -1,0 +1,73 @@
+@use "./mixins" as *;
+
+.userContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  padding-top: 6rem;
+
+  .title {
+    color: #213f7d;
+    font-weight: 500;
+    font-size: 1.5rem;
+    line-height: 100%;
+  }
+
+  .cardContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 1.625rem;
+
+    @include breakpoint("xl") {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    @include breakpoint("lg") {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @include breakpoint("sm") {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+.loadingContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: calc(100vh - 8.125rem);
+}
+
+.detailsCard {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  height: 10rem;
+  width: 100%;
+  background-color: #ffffff;
+  box-shadow: 0.1875rem 0.3125rem 1.25rem #0000000a;
+  padding: 1.25rem 1.875rem 1.875rem;
+
+  img {
+    object-fit: contain;
+  }
+
+  h4 {
+    margin-top: 0.875rem;
+    margin-bottom: 0.75rem;
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 100%;
+    color: #545f7d;
+    text-transform: uppercase;
+  }
+
+  span {
+    font-weight: 600;
+    font-size: 1.5rem;
+    line-height: 100%;
+    color: #39cdcc;
+  }
+}

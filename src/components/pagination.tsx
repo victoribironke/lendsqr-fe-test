@@ -21,9 +21,7 @@ const Pagination = ({
   const totalPages = Math.ceil(totalItems / itemsPerPage);
 
   const handlePageChange = (page: number) => {
-    if (page >= 1 && page <= totalPages) {
-      setCurrentPage(page);
-    }
+    if (page >= 1 && page <= totalPages) setCurrentPage(page);
   };
 
   const renderPages = () => {
@@ -56,17 +54,12 @@ const Pagination = ({
       const startPage = Math.max(2, currentPage - 1);
       const endPage = Math.min(totalPages - 1, currentPage + 1);
 
-      if (shouldShowStartEllipsis) {
-        pages.push(renderEllipsis("start-ellipsis"));
-      }
+      if (shouldShowStartEllipsis) pages.push(renderEllipsis("start-ellipsis"));
 
-      for (let i = startPage; i <= endPage; i++) {
+      for (let i = startPage; i <= endPage; i++)
         pages.push(renderPageButton(i));
-      }
 
-      if (shouldShowEndEllipsis) {
-        pages.push(renderEllipsis("end-ellipsis"));
-      }
+      if (shouldShowEndEllipsis) pages.push(renderEllipsis("end-ellipsis"));
 
       // Always show last page
       pages.push(renderPageButton(totalPages));

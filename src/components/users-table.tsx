@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import styles from "@/styles/user-table.module.scss";
 import { UsersTableProps } from "@/types/general";
 import { cn, formatDate } from "@/lib/utils";

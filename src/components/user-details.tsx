@@ -99,7 +99,7 @@ const UserDetails = ({ id }: { id: string }) => {
             </div>
             <div className={styles.divider}></div>
             <div className={styles.tierContainer}>
-              <span>User's Tier</span>
+              <span>User&apos;s Tier</span>
               <div>
                 {[1, 2, 3].map((val, i) => (
                   <img

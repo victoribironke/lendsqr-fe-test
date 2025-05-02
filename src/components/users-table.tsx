@@ -6,7 +6,6 @@ import { useUsers } from "@/context/user-context";
 import { useRouter } from "next/navigation";
 import { IMAGES, PAGES, USER_KEY } from "@/constants/constants";
 import FilterPanel from "./filter-panel";
-import { USERS } from "@/constants/users";
 
 const UsersTable = ({
   data,

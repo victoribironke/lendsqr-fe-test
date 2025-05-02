@@ -5,12 +5,12 @@
   --foreground: #171717;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+// @media (prefers-color-scheme: dark) {
+//   :root {
+//     --background: #0a0a0a;
+//     --foreground: #ededed;
+//   }
+// }
 
 html,
 body {
@@ -41,4 +41,14 @@ a {
   html {
     color-scheme: dark;
   }
+}
+
+:global(input[type="number"]::-webkit-inner-spin-button),
+:global(input[type="number"]::-webkit-outer-spin-button) {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+  width: 100%;
+  flex: 1;
 }

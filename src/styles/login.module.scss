@@ -1,0 +1,87 @@
+@use "./mixins" as *;
+
+.loginContainer {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+}
+
+.illustrationContainer {
+  flex: 1;
+  width: "100%";
+  background-color: #fefefe;
+  display: flex;
+  justify-content: center;
+
+  @include breakpoint("xl") {
+    display: none;
+  }
+
+  .illustration {
+    display: flex;
+    flex-direction: column;
+    gap: 8.5rem;
+    margin-top: 6.5rem;
+  }
+}
+
+.formContainer {
+  flex: 1;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+
+  @include breakpoint("xl") {
+    justify-content: start;
+    align-items: center;
+    padding-inline: 1.5rem;
+  }
+
+  .login {
+    display: flex;
+    flex-direction: column;
+    margin-top: 13.75rem;
+    margin-left: 6.25rem;
+    max-width: 28rem;
+    width: 100%;
+
+    @include breakpoint("xl") {
+      margin-left: 0;
+      margin-top: 9rem;
+    }
+
+    h1 {
+      color: #213f7d;
+      font-size: 2.5rem;
+      font-weight: 700;
+      line-height: 100%;
+      letter-spacing: -4%;
+    }
+
+    h2 {
+      margin-top: 0.6rem;
+      margin-bottom: 3.75rem;
+      color: #545f7d;
+      font-weight: normal;
+      font-size: 1.25rem;
+      line-height: 100%;
+    }
+
+    .inputWrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-bottom: 1.875rem;
+
+      p {
+        color: #39cdcc;
+        font-size: 0.875rem;
+        font-weight: 600;
+        line-height: 100%;
+        text-transform: uppercase;
+        letter-spacing: 10%;
+      }
+    }
+  }
+}

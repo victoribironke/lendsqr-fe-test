@@ -1,4 +1,5 @@
-import "./globals.scss";
+import "../styles/globals.scss";
+import { Suspense } from "react";
 
 const RootLayout = ({
   children,
@@ -7,7 +8,9 @@ const RootLayout = ({
 }>) => {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Suspense>{children}</Suspense>
+      </body>
     </html>
   );
 };

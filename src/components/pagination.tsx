@@ -29,67 +29,47 @@ const Pagination = ({
   const renderPages = () => {
     const pages = [];
 
+    const renderPageButton = (page: number) => (
+      <button
+        key={page}
+        className={cn(styles.pageBtn, currentPage === page && styles.active)}
+        onClick={() => handlePageChange(page)}
+      >
+        {page}
+      </button>
+    );
+
+    const renderEllipsis = (key: string) => <span key={key}>...</span>;
+
     if (totalPages <= 7) {
+      // Render all pages when total is small
       for (let i = 1; i <= totalPages; i++) {
-        pages.push(
-          <button
-            key={i}
-            className={cn(
-              styles.pageBtn,
-              currentPage === i ? styles.active : ""
-            )}
-            onClick={() => handlePageChange(i)}
-          >
-            {i}
-          </button>
-        );
+        pages.push(renderPageButton(i));
       }
     } else {
-      pages.push(
-        <button
-          key={1}
-          className={cn(styles.pageBtn, currentPage === 1 ? styles.active : "")}
-          onClick={() => handlePageChange(1)}
-        >
-          1
-        </button>
-      );
+      // Always show first page
+      pages.push(renderPageButton(1));
 
-      if (currentPage > 3) pages.push(<span key="start-ellipsis">...</span>);
+      const shouldShowStartEllipsis = currentPage > 3;
+      const shouldShowEndEllipsis = currentPage < totalPages - 2;
 
       const startPage = Math.max(2, currentPage - 1);
       const endPage = Math.min(totalPages - 1, currentPage + 1);
 
-      for (let i = startPage; i <= endPage; i++) {
-        pages.push(
-          <button
-            key={i}
-            className={cn(
-              styles.pageBtn,
-              currentPage === i ? styles.active : ""
-            )}
-            onClick={() => handlePageChange(i)}
-          >
-            {i}
-          </button>
-        );
+      if (shouldShowStartEllipsis) {
+        pages.push(renderEllipsis("start-ellipsis"));
       }
 
-      if (currentPage < totalPages - 2)
-        pages.push(<span key="end-ellipsis">...</span>);
+      for (let i = startPage; i <= endPage; i++) {
+        pages.push(renderPageButton(i));
+      }
 
-      pages.push(
-        <button
-          key={totalPages}
-          className={cn(
-            styles.pageBtn,
-            currentPage === totalPages ? styles.active : ""
-          )}
-          onClick={() => handlePageChange(totalPages)}
-        >
-          {totalPages}
-        </button>
-      );
+      if (shouldShowEndEllipsis) {
+        pages.push(renderEllipsis("end-ellipsis"));
+      }
+
+      // Always show last page
+      pages.push(renderPageButton(totalPages));
     }
 
     return pages;
